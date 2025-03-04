@@ -10,36 +10,40 @@ h1 {
     background: linear-gradient(90deg, #ff6b6b, #ffa94d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 2.2rem;
-    margin-top: 20px;
+    font-size: 5vh;
+    margin-top: 3vh;
 }
 #map {
-    height: 500px;
-    width: 90%;
-    margin: 20px auto;
+    height: 50vh;
+    width: 90vw;
+    margin: 0vh auto;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
 #controls {
     display: flex;
     justify-content: space-around;
-    width: 90%;
-    margin: 20px auto;
-    padding: 18px;
+    width: 90vw;
+    margin: 3vh auto 3vh auto;
+    padding: 0vh 0vw;
     background: rgba(50, 50, 50, 0.8);
     border-radius: 10px;
 }
 .control-column {
     flex: 1;
-    padding: 8px 18px;
+    padding: 3.5vh 0vw;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-right: 0.15vw solid rgba(30, 30, 46, 0.3);
+}
+.control-column:last-child {
+    border-right: none;
 }
 .control-column h3 {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+    margin-top: 0vh;
+    margin-bottom: 1.2vh;
+    font-size: 2.8vh;
     align-self: center;
 }
 .control-column label {
@@ -48,11 +52,11 @@ h1 {
     justify-content: flex-start;
     width: 100%;
     text-align: left;
-    font-size: 1.1rem;
-    padding: 3px 0;
-    margin-left: 50px;
+    font-size: 2vh;
+    padding: 0.5vh 0;
+    margin-left: 5vw;
 }
 input[type="checkbox"] {
     accent-color: #ff6b6b;
-    margin-right: 10px;
+    margin-right: 0.5vw;
 }
