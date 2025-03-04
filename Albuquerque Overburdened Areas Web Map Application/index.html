@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albuquerque Overburdened Areas Web Map Application</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Plugin CSS-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/plugins/leaflet.zoomhome.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <h1>Albuquerque Overburdened Areas Web Map Application</h1>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Plugin JS -->
+    <script src="javascript/plugins/leaflet.zoomhome.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="javascript/initializeMap.js"></script>
+    <script src="javascript/updateMap.js"></script>
+    <script src="javascript/calculations.js"></script>
+    <script src="javascript/getGeoJSON.js"></script>
+
+    <div id="controls">
+        <div class="control-column">
+            <h3>Environmental Indicators</h3>
+            <label><input type="checkbox" id="Env_OzoneConcentrations_toggle" checked> Ozone Conc. (ppb)</label>
+            <label><input type="checkbox" id="Env_PM25Concentrations_toggle" checked> PM2.5 Conc. (μg/m3)</label>
+            <label><input type="checkbox" id="Env_DieselPMConcentrations_toggle" checked> Diesel Particulate Matter Conc. (ppb)</label>
+            <label><input type="checkbox" id="Env_TrafficProximity_toggle" checked> Traffic Proximity</label>
+            <label><input type="checkbox" id="Env_AirToxicsEmissions_toggle" checked> Toxic Releases to Air</label>
+        </div>
+        
+        <div class="control-column">
+            <h3>Health Indicators</h3>
+            <label><input type="checkbox" id="Hea_AsthmaPrevalence_toggle" checked> Asthma Among Adults</label>
+            <label><input type="checkbox" id="Hea_COPDPrevalence_toggle" checked> COPD Among Adults</label>
+            <label><input type="checkbox" id="Hea_HeartDiseasePrevalence_toggle" checked> Heart Disease</label>
+            <label><input type="checkbox" id="Hea_DisabilityPrevalence_toggle" checked> Any Disability Among Adults</label>
+            <label><input type="checkbox" id="Hea_CancerPrevalence_toggle" checked> Cancer (non-skin) or Melanoma</label>
+            <label><input type="checkbox" id="Hea_LowLifeExpectancy_toggle" checked> Low Life Expectancy</label>
+        </div>
+        
+        <div class="control-column">
+            <h3>Social Determinants of Health</h3>
+            <label><input type="checkbox" id="SoDe_DidNotCompleteHighSchool_toggle" checked> No High School Diploma</label>
+            <label><input type="checkbox" id="SoDe_LowIncome_toggle" checked> Low Income Households</label>
+            <label><input type="checkbox" id="SoDe_LimitedEnglishProficiency_toggle" checked> Limited English</label>
+            <label><input type="checkbox" id="SoDe_PeopleOfColor_toggle" checked> People of Color</label>
+        </div>
+    </div>
+
+    <script src="javascript/handleCheckboxUpdates.js"></script>
+</body>
+</html>
