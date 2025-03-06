@@ -91,17 +91,17 @@ function addBlockGroupLayer(
                     "<br><b>Census Block Group ID:</b> " +
                     feature.properties.BlockGroupID + 
                     "<br><b>Average Selected Environmental Indicators:</b> " + 
-                    feature.properties.AverageSelectedEnvironmentalIndicators.toFixed(3) + 
+                    feature.properties.AverageSelectedEnvironmentalIndicators.toPrecision(3) + 
                     "<br><b>Average Selected Health Indicators:</b> " +
-                    feature.properties.AverageSelectedHealthIndicators.toFixed(3) + 
+                    feature.properties.AverageSelectedHealthIndicators.toPrecision(3) + 
                     "<br><b>Average Selected Social Determinants of Health Indicators:</b> " +
-                    feature.properties.AverageSelectedSocialDeterminantsOfHealthIndicators.toFixed(3) +
+                    feature.properties.AverageSelectedSocialDeterminantsOfHealthIndicators.toPrecision(3) +
                     "<br><b>Pollution Burden Index:</b> " +
-                    feature.properties.PollutionBurdenIndex.toFixed(3) + 
+                    feature.properties.PollutionBurdenIndex.toPrecision(3) + 
                     "<br><b>Vulnerable Populations Index:</b> " +
-                    feature.properties.VulnerablePopulationsIndex.toFixed(3) +
+                    feature.properties.VulnerablePopulationsIndex.toPrecision(3) +
                     "<br><b>OBA Map Score:</b> " +
-                    feature.properties.OBAMapScore.toFixed(3),
+                    feature.properties.OBAMapScore.toPrecision(3),
                     {minWidth: 450}
                 );
             }

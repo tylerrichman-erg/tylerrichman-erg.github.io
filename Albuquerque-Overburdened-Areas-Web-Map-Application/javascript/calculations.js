@@ -42,7 +42,7 @@ function calcAverageSelectedEnvironmentalIndicators(
     avgNonNull = sumNonNull / countNonNull;
 
     if (countNonNull === 0){
-        avgNonNull = 0;
+        avgNonNull = NaN;
     }
 
     return avgNonNull;
@@ -97,7 +97,7 @@ function calcAverageSelectedHealthIndicators(
     avgNonNull = sumNonNull / countNonNull;
 
     if (countNonNull === 0){
-        avgNonNull = 0;
+        avgNonNull = NaN;
     }
 
     return avgNonNull;
@@ -142,7 +142,7 @@ function calcAverageSelectedSocialDeterminantsOfHealthIndicators(
     avgNonNull = sumNonNull / countNonNull;
 
     if (countNonNull === 0){
-        avgNonNull = 0;
+        avgNonNull = NaN;
     }
 
     return avgNonNull;
@@ -150,7 +150,7 @@ function calcAverageSelectedSocialDeterminantsOfHealthIndicators(
 
 // Calculate Pollution Burden Index
 function calcPollutionBurdenIndex(AverageSelectedEnvironmentalIndicators) {
-    if (AverageSelectedEnvironmentalIndicators === 0) {
+    if (Number.isNaN(AverageSelectedEnvironmentalIndicators)) {
         return 1;
     } else {
         return AverageSelectedEnvironmentalIndicators / 1.5;
@@ -159,8 +159,12 @@ function calcPollutionBurdenIndex(AverageSelectedEnvironmentalIndicators) {
 
 // Calculate Pollution Burden Index
 function calcVulnerablePopulationsIndex(AverageSelectedHealthIndicators, AverageSelectedSocialDeterminantsOfHealthIndicators) {
-    if (AverageSelectedHealthIndicators +  AverageSelectedSocialDeterminantsOfHealthIndicators === 0) {
+    if (Number.isNaN(AverageSelectedHealthIndicators) && Number.isNaN(AverageSelectedSocialDeterminantsOfHealthIndicators)) {
         return 1;
+    } else if (Number.isNaN(AverageSelectedHealthIndicators)) {
+        return AverageSelectedSocialDeterminantsOfHealthIndicators;
+    } else if (Number.isNaN(AverageSelectedSocialDeterminantsOfHealthIndicators)) {
+        return AverageSelectedHealthIndicators;
     } else {
         return (AverageSelectedHealthIndicators + AverageSelectedSocialDeterminantsOfHealthIndicators) / 2;
     }
