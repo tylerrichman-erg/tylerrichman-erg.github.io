@@ -162,9 +162,9 @@ function calcVulnerablePopulationsIndex(AverageSelectedHealthIndicators, Average
     if (Number.isNaN(AverageSelectedHealthIndicators) && Number.isNaN(AverageSelectedSocialDeterminantsOfHealthIndicators)) {
         return 1;
     } else if (Number.isNaN(AverageSelectedHealthIndicators)) {
-        return AverageSelectedSocialDeterminantsOfHealthIndicators;
+        return AverageSelectedSocialDeterminantsOfHealthIndicators / 2;
     } else if (Number.isNaN(AverageSelectedSocialDeterminantsOfHealthIndicators)) {
-        return AverageSelectedHealthIndicators;
+        return AverageSelectedHealthIndicators / 2;
     } else {
         return (AverageSelectedHealthIndicators + AverageSelectedSocialDeterminantsOfHealthIndicators) / 2;
     }
