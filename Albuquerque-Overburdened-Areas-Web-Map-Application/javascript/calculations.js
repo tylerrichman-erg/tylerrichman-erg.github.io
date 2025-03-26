@@ -1,15 +1,17 @@
 // Function to get the average environmental indicator value
-function calcAverageSelectedEnvironmentalIndicators(
+function calcAverageSelectedEnvironmentalIndicators_Exposure(
     Env_OzoneConcentrations,
     Env_PM25Concentrations,
     Env_DieselPMConcentrations,
     Env_TrafficProximity,
     Env_AirToxicsEmissions,
+    Env_NO2Concentrations,
     Env_OzoneConcentrations_isChecked = true,
     Env_PM25Concentrations_isChecked = true,
     Env_DieselPMConcentrations_isChecked = true,
     Env_TrafficProximity_isChecked = true,
-    Env_AirToxicsEmissions_isChecked = true
+    Env_AirToxicsEmissions_isChecked = true,
+    Env_NO2Concentrations_isChecked = true
 ) {
     var countNonNull = 0;
     var sumNonNull = 0;
@@ -30,6 +32,39 @@ function calcAverageSelectedEnvironmentalIndicators(
     }
     if (Env_AirToxicsEmissions_isChecked){
         list.push(Env_AirToxicsEmissions);
+    }
+    if (Env_NO2Concentrations_isChecked){
+        list.push(Env_NO2Concentrations);
+    }
+
+
+    for (let i = 0; i < list.length; i++) {
+        if (list[i] != null){
+            sumNonNull = sumNonNull + list[i];
+            countNonNull++;
+        }
+    }
+
+    avgNonNull = sumNonNull / countNonNull;
+
+    if (countNonNull === 0){
+        avgNonNull = NaN;
+    }
+
+    return avgNonNull;
+}
+
+function calcAverageSelectedEnvironmentalIndicators_Sources(
+    Env_SuperfundProximity,
+    Env_SuperfundProximity_isChecked = true
+) {
+    var countNonNull = 0;
+    var sumNonNull = 0;
+
+    let list = [];
+
+    if (Env_SuperfundProximity_isChecked){
+        list.push(Env_SuperfundProximity);
     }
 
     for (let i = 0; i < list.length; i++) {
@@ -149,11 +184,17 @@ function calcAverageSelectedSocialDeterminantsOfHealthIndicators(
 }
 
 // Calculate Pollution Burden Index
-function calcPollutionBurdenIndex(AverageSelectedEnvironmentalIndicators) {
-    if (Number.isNaN(AverageSelectedEnvironmentalIndicators)) {
+function calcPollutionBurdenIndex(AverageSelectedEnvironmentalIndicators_Exposure, AverageSelectedEnvironmentalIndicators_Sources) {
+    if (Number.isNaN(AverageSelectedEnvironmentalIndicators_Exposure) && Number.isNaN(AverageSelectedEnvironmentalIndicators_Sources)) {
         return 1;
     } else {
-        return AverageSelectedEnvironmentalIndicators / 1.5;
+        if(Number.isNaN(AverageSelectedEnvironmentalIndicators_Exposure)) {
+            return (0.5 * AverageSelectedEnvironmentalIndicators_Sources) / 1.5;
+        } else if(Number.isNaN(AverageSelectedEnvironmentalIndicators_Sources)) {
+            return AverageSelectedEnvironmentalIndicators_Exposure / 1.5;
+        } else {
+            return (AverageSelectedEnvironmentalIndicators_Exposure + (0.5 * AverageSelectedEnvironmentalIndicators_Sources)) / 1.5;
+        }
     }
 }
 

@@ -21,6 +21,8 @@ document.querySelectorAll('#controls input[type="checkbox"]').forEach(checkbox =
             Env_DieselPMConcentrations_isChecked = checkboxStates.Env_DieselPMConcentrations_toggle,
             Env_TrafficProximity_isChecked = checkboxStates.Env_TrafficProximity_toggle,
             Env_AirToxicsEmissions_isChecked = checkboxStates.Env_AirToxicsEmissions_toggle,
+            Env_NO2Concentrations_isChecked = checkboxStates.Env_NO2Concentrations_toggle,
+            Env_SuperfundProximity_isChecked = checkboxStates.Env_SuperfundProximity_toggle,
             Hea_AsthmaPrevalence_isChecked = checkboxStates.Hea_AsthmaPrevalence_toggle,
             Hea_COPDPrevalence_isChecked = checkboxStates.Hea_COPDPrevalence_toggle,
             Hea_HeartDiseasePrevalence_isChecked = checkboxStates.Hea_HeartDiseasePrevalence_toggle,

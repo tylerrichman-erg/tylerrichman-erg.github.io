@@ -11,6 +11,8 @@ fetch('https://services1.arcgis.com/BN5Mj6q47j71sqyJ/ArcGIS/rest/services/Combin
             Env_DieselPMConcentrations_isChecked = true,
             Env_TrafficProximity_isChecked = true,
             Env_AirToxicsEmissions_isChecked = true,
+            Env_NO2Concentrations_isChecked = true,
+            Env_SuperfundProximity_isChecked = true,
             Hea_AsthmaPrevalence_isChecked = true,
             Hea_COPDPrevalence_isChecked = true,
             Hea_HeartDiseasePrevalence_isChecked = true,
