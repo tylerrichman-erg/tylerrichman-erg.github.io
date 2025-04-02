@@ -1,20 +1,20 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e1e2e;
+    background-color: #36404A;
     color: #ffffff;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 h1 {
-    background: linear-gradient(90deg, #ff6b6b, #ffa94d);
+    background: linear-gradient(90deg, #ADCCED, #FAFAFA);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 5vh;
     margin-top: 3vh;
 }
 #map {
-    height: 50vh;
+    height: 75vh;
     width: 90vw;
     margin: 0vh auto;
     border-radius: 10px;
@@ -66,6 +66,6 @@ h1 {
     margin-left: 5vw;
 }
 input[type="checkbox"] {
-    accent-color: #ff6b6b;
+    accent-color: #007FFF;
     margin-right: 0.5vw;
 }

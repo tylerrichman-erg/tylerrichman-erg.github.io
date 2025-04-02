@@ -91,7 +91,12 @@ function addBlockGroupLayer(
                 color: 'black',
                 weight: 1,
                 fillOpacity: 0.6,
-                fillColor: feature.properties.OBAMapScore >= OBAMapScore80Pctile ? 'red' : 'transparent'
+                fillColor: isNaN(feature.properties.AverageSelectedEnvironmentalIndicators_Exposure) &&
+                    isNaN(feature.properties.AverageSelectedEnvironmentalIndicators_Sources) &&
+                    isNaN(feature.properties.AverageSelectedHealthIndicators) &&
+                    isNaN(feature.properties.AverageSelectedSocialDeterminantsOfHealthIndicators)
+                ? 'transparent'
+                : feature.properties.OBAMapScore >= OBAMapScore80Pctile ? '#007FFF' : 'transparent'
                 }
             },
             onEachFeature: function(feature, layer) {                  
