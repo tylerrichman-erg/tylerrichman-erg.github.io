@@ -119,7 +119,7 @@ function addBlockGroupLayer(
                     "<br><b>OBA Map Score:</b> " +
                     feature.properties.OBAMapScore.toFixed(3) + 
                     "<br><b>OBA Map Score Percentile:</b> " +
-                    calculatePercentile(OBAMapScoreArray, feature.properties.OBAMapScore).toFixed(3),
+                    percentRankInc(OBAMapScoreArray, feature.properties.OBAMapScore).toFixed(1) + "%",
                     {minWidth: 450}
                 );
             }

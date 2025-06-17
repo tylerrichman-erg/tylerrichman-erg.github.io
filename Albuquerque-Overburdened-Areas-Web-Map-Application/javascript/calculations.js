@@ -231,28 +231,28 @@ function calculate80thPercentile(arr) {
     }
 }
 
-//Calculate Percentile (from Google AI)
-function calculatePercentile(arr, value) {
-  if (!arr || arr.length === 0) {
-    return 0; // Handle empty array case
-  }
+//Calculate Percentile
+function percentRankInc(arr, x) {
+  if (!Array.isArray(arr) || arr.length < 2) return null;
 
-  // Sort the array in ascending order.
-  const sortedArr = [...arr].sort((a, b) => a - b);
+  const sorted = [...arr].sort((a, b) => a - b);
+  const n = sorted.length;
 
-  // Find the index of the value.
-  let count = 0;
-  for (let i = 0; i < sortedArr.length; i++) {
-    if (sortedArr[i] < value) {
-      count++;
-    } else if (sortedArr[i] === value) {
-      count += 0.5;
-    } else {
-      break; // Optimization: stop if value is less than current element
+  if (x < sorted[0]) return 0;
+  if (x > sorted[n - 1]) return 100;
+
+  for (let i = 0; i < n; i++) {
+    if (x === sorted[i]) {
+      return (i / (n - 1)) * 100;
+    }
+
+    if (x < sorted[i]) {
+      const lower = sorted[i - 1];
+      const upper = sorted[i];
+      const fraction = (x - lower) / (upper - lower);
+      return ((i - 1 + fraction) / (n - 1)) * 100;
     }
   }
 
-  // Calculate the percentile
-  const percentile = (count / sortedArr.length) * 100;
-  return percentile;
+  return 100;
 }
