@@ -105,19 +105,21 @@ function addBlockGroupLayer(
                     "<br><b>Census Block Group ID:</b> " +
                     feature.properties.BlockGroupID + 
                     "<br><b>Average Selected Environmental Indicators (Exposure):</b> " + 
-                    feature.properties.AverageSelectedEnvironmentalIndicators_Exposure.toPrecision(3) + 
+                    feature.properties.AverageSelectedEnvironmentalIndicators_Exposure.toFixed(3) + 
                     "<br><b>Average Selected Environmental Indicators (Sources):</b> " + 
-                    feature.properties.AverageSelectedEnvironmentalIndicators_Sources.toPrecision(3) + 
+                    feature.properties.AverageSelectedEnvironmentalIndicators_Sources.toFixed(3) + 
                     "<br><b>Average Selected Health Indicators:</b> " +
-                    feature.properties.AverageSelectedHealthIndicators.toPrecision(3) + 
+                    feature.properties.AverageSelectedHealthIndicators.toFixed(3) + 
                     "<br><b>Average Selected Social Determinants of Health Indicators:</b> " +
-                    feature.properties.AverageSelectedSocialDeterminantsOfHealthIndicators.toPrecision(3) +
+                    feature.properties.AverageSelectedSocialDeterminantsOfHealthIndicators.toFixed(3) +
                     "<br><b>Pollution Burden Index:</b> " +
-                    feature.properties.PollutionBurdenIndex.toPrecision(3) + 
+                    feature.properties.PollutionBurdenIndex.toFixed(3) + 
                     "<br><b>Vulnerable Populations Index:</b> " +
-                    feature.properties.VulnerablePopulationsIndex.toPrecision(3) +
+                    feature.properties.VulnerablePopulationsIndex.toFixed(3) +
                     "<br><b>OBA Map Score:</b> " +
-                    feature.properties.OBAMapScore.toPrecision(3),
+                    feature.properties.OBAMapScore.toFixed(3) + 
+                    "<br><b>OBA Map Score Percentile:</b> " +
+                    calculatePercentile(OBAMapScoreArray, feature.properties.OBAMapScore).toFixed(3),
                     {minWidth: 450}
                 );
             }
