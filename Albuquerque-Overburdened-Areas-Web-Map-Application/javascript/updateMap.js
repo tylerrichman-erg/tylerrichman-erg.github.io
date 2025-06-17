@@ -84,6 +84,9 @@ function addBlockGroupLayer(
     }
 
     var OBAMapScore80Pctile = calculate80thPercentile(OBAMapScoreArray);
+
+    var testnum = 9.85;
+    console.log(roundHalfUp(testnum, 1));
     
     L.geoJSON(dataJSON, {
         style: function(feature) {
@@ -105,21 +108,21 @@ function addBlockGroupLayer(
                     "<br><b>Census Block Group ID:</b> " +
                     feature.properties.BlockGroupID + 
                     "<br><b>Average Selected Environmental Indicators (Exposure):</b> " + 
-                    feature.properties.AverageSelectedEnvironmentalIndicators_Exposure.toFixed(3) + 
+                    roundHalfUp(feature.properties.AverageSelectedEnvironmentalIndicators_Exposure, 3) + 
                     "<br><b>Average Selected Environmental Indicators (Sources):</b> " + 
-                    feature.properties.AverageSelectedEnvironmentalIndicators_Sources.toFixed(3) + 
+                    roundHalfUp(feature.properties.AverageSelectedEnvironmentalIndicators_Sources, 3) + 
                     "<br><b>Average Selected Health Indicators:</b> " +
-                    feature.properties.AverageSelectedHealthIndicators.toFixed(3) + 
+                    roundHalfUp(feature.properties.AverageSelectedHealthIndicators, 3) + 
                     "<br><b>Average Selected Social Determinants of Health Indicators:</b> " +
-                    feature.properties.AverageSelectedSocialDeterminantsOfHealthIndicators.toFixed(3) +
+                    roundHalfUp(feature.properties.AverageSelectedSocialDeterminantsOfHealthIndicators, 3) +
                     "<br><b>Pollution Burden Index:</b> " +
-                    feature.properties.PollutionBurdenIndex.toFixed(3) + 
+                    roundHalfUp(feature.properties.PollutionBurdenIndex, 3) + 
                     "<br><b>Vulnerable Populations Index:</b> " +
-                    feature.properties.VulnerablePopulationsIndex.toFixed(3) +
+                    roundHalfUp(feature.properties.VulnerablePopulationsIndex, 3) +
                     "<br><b>OBA Map Score:</b> " +
-                    feature.properties.OBAMapScore.toFixed(3) + 
+                    roundHalfUp(feature.properties.OBAMapScore, 3) + 
                     "<br><b>OBA Map Score Percentile:</b> " +
-                    percentRankInc(OBAMapScoreArray, feature.properties.OBAMapScore).toFixed(1) + "%",
+                    roundHalfUp(percentRankInc(OBAMapScoreArray, feature.properties.OBAMapScore), 1) + "%",
                     {minWidth: 450}
                 );
             }

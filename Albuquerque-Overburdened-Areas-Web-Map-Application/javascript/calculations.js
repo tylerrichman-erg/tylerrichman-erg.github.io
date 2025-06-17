@@ -256,3 +256,9 @@ function percentRankInc(arr, x) {
 
   return 100;
 }
+
+//Custom Round Function
+function roundHalfUp(value, decimals = 0) {
+  const factor = Math.pow(10, decimals);
+  return (Math.round(value * factor + Number.EPSILON)) / factor;
+}
